@@ -1,0 +1,211 @@
+@font-face {
+    font-family: 'Altoys';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Altoys.ttf');
+    src: local('Altoys'), local('Altoys'),
+        url('../fonts/Altoys.ttf') format('truetype')
+}
+
+html, body {
+    min-height: 100% !important;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: #1E2D40;
+    color:#f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+.company {
+    background: #344D65;
+    padding: 15px;
+}
+
+.side-bar {
+    display: inline-block;
+    background-color:#0e1823;
+    width: 25%;
+    min-height: 100vh;
+    text-align: center;
+    overflow: auto;
+}
+
+.side-bar h1 {
+    display: inline-block;
+    background: url('../img/logo-tc.png') no-repeat;
+    width: 80px;
+    height: 80px;
+}
+
+.main {
+    display: inline-block;
+    width: 75%;
+    min-height: 100vh;
+    overflow: auto;
+    /* background-image: url('../img/car-wireframe.png') */
+}
+
+.search-bar {
+    background-color: #1B2433;
+}
+
+.search-bar > input {
+    background-color: transparent;
+    width: 80%;
+    padding: 10px;
+    margin: 20px 10px;
+    border-radius: 5px;
+    border-color: #3C4551;
+    border-style: solid;
+    color: white;
+}
+
+.search-bar > input:focus {
+    outline: none;
+    color: white;
+}
+
+.search-bar > button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.search-bar > button:focus {
+    outline: none;
+    cursor: pointer;
+}
+
+.content {
+    text-align: center;
+}
+
+.content h1 {
+    margin-top: 100px;
+    font-size: 80px;
+    font-family: 'Altoys'
+}
+
+.form-car {
+    display: inline-block;
+    width: 80%;
+}
+
+.form-car input, select {
+    padding: 10px;
+    margin: 20px 10px;
+    float: left;
+    border-color: #505D6D;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    background: transparent;
+    color: white;
+}
+
+.form-car input:focus {
+    outline: none;
+    color: white;
+}
+
+.form-car .name {
+    width: 100%;
+}
+
+.form-car .model {
+    width: 45%;
+}
+
+.form-car .year {
+    width: 45%;
+    float: right;
+}
+
+.form-car .brands {
+    width: 100%;
+    border: 1px #505D6D solid;
+    color: white;
+    height: 30px;
+}
+
+.form-car .brands:focus {
+    outline: none;
+}
+
+.form-car .buttons {
+    display: inline-block;
+    width: 100%;
+}
+
+.form-car .options {
+    width: 70%;
+    float: left;
+}
+
+.form-car .options a {
+    width: 20%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px white solid;
+    background: transparent;
+    cursor: pointer;
+    float: left;
+    margin: 10px;
+}
+
+.form-car .save {
+    padding: 10px;
+    border-radius: 5px;
+    width: 15%;
+    float: right;
+    margin: 10px;
+}
+
+.form-car .save:focus {
+    outline: none;
+}
+
+.car-item {
+    display: inline-block;
+    width: 80%;
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px #8d8888 solid;
+}
+
+.car-item:hover {
+    background-color: rgba(50, 62, 76, 0.5);
+    cursor: pointer;
+    border-top: 1px #8d8888 solid;
+    border-bottom: 1px #8d8888 solid;
+}
+
+.car-item h2 {
+    font-size: 21px;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.car-item span {
+    font-weight: lighter;
+}
+
+.car-detail-left {
+    display: inline-block;
+    width: 85%;
+}
+
+.car-detail-right {
+    display: inline-block;
+    width: 15%;
+}
+
+.banner {
+    font-family: 'Lobster Two', cursive;
+    font-size: 100px;
+}
+
