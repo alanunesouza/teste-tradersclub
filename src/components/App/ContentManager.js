@@ -6,15 +6,15 @@ export default class ContentManager extends Component {
   constructor(props) {
       super(props);
 
-      this.state = { content: this.props.content };
+      this.state = { content: this.props.content, carSelected: null };
   }
 
   componentWillReceiveProps(nextProps) {
       this.setState({ content: nextProps.content });
   }
 
-  changePage() {
-      this.setState({ content: 'createCar'});
+  editCar(car) {
+      this.setState({ content: 'createCar', carSelected: car});
   }
 
   renderSwitch() {
@@ -23,7 +23,7 @@ export default class ContentManager extends Component {
               return (
                   this.props.filteredCars.map((car, index) => {
                       return (
-                          <div key={`item-${index}`} className="car-item" onClick={this.changePage.bind(this)}>
+                          <div key={`item-${index}`} className="car-item" onClick={this.editCar.bind(this, car)}>
                               <div key={`left-${index}`} className="car-detail-left">
                                   <h2 key={`title-${index}`}>{car.title}</h2>
                                   <span key={`details-car-${index}`}>
@@ -41,7 +41,7 @@ export default class ContentManager extends Component {
               break;
           case 'createCar':
               return (
-                  <CreateCar brands={this.props.brands} content={this.props.content}/>
+                  <CreateCar {...this.props} {...this.state}/>
               )
               break;
           default:

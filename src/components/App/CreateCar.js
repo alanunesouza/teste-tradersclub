@@ -1,14 +1,23 @@
 import React, {Component} from 'react';
+import CurrencyInput from 'react-currency-input';
 
 export default class CreateCar extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { brands: props.brands, car: [], content: props.content };
+        this.state = {
+            brands: props.brands,
+            car: [], content: props.content,
+            carSelected: props.carSelected
+        };
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({ brands: nextProps.brands });
+    }
+
+    componentWillUnmount() {
+        this.setState({ carSelected: null });
     }
 
     saveCar(event) {
@@ -42,18 +51,66 @@ export default class CreateCar extends Component {
       return (
           <div className="form-car">
               <form onSubmit={this.handleSubmit.bind(this)}>
-                  <input required name="title" onChange={this.handleChange.bind(this)} className="name" placeholder="Nome" />
-                  <input required name="model" onChange={this.handleChange.bind(this)} className="model" placeholder="Modelo" />
-                  <input required name="year" onChange={this.handleChange.bind(this)} className="year" placeholder="Ano" />
-                  <select name="brand" onChange={this.handleChange.bind(this)} className="brands">
-                      <option selected="selected">Selecione a marca do carro</option>
+                  <input
+                        required
+                        defaultValue={this.state.carSelected ? this.state.carSelected.title : ''}
+                        name="title"
+                        className="name"
+                        placeholder="Nome"
+                        onChange={this.handleChange.bind(this)}
+                  />
+                  <input
+                        required
+                        defaultValue={this.state.carSelected ? this.state.carSelected.model : ''}
+                        name="model"
+                        className="model"
+                        placeholder="Modelo"
+                        onChange={this.handleChange.bind(this)}
+                  />
+                  <input
+                        required name="year"
+                        defaultValue={this.state.carSelected ? this.state.carSelected.year : ''}
+                        className="year"
+                        placeholder="Ano"
+                        onChange={this.handleChange.bind(this)}
+                  />
+                  <select
+                        name="brand"
+                        className="brands"
+                        onChange={this.handleChange.bind(this)}
+                  >
+                      <option selected="selected">
+                            {this.state.carSelected ? this.state.carSelected.brand : 'Selecione a marca do carro'}
+                      </option>
                       {this.props.brands.map(brand => {
                         return <option value={brand.name} key={brand.id}>{brand.name}</option>
                       })}
                   </select>
-                  <input required name="color" onChange={this.handleChange.bind(this)} className="model" placeholder="Cor" />
-                  <input required name="price" onChange={this.handleChange.bind(this)} className="year" placeholder="Preço" />
-                  <input required name="km" onChange={this.handleChange.bind(this)} className="model" placeholder="km" />
+                  <input
+                        required
+                        defaultValue={this.state.carSelected ? this.state.carSelected.color : ''}
+                        name="color"
+                        className="model"
+                        placeholder="Cor"
+                        onChange={this.handleChange.bind(this)}
+                  />
+
+                  <CurrencyInput
+                        className="year"
+                        value={this.state.carSelected ? this.state.carSelected.price : ''}
+                        decimalSeparator=","
+                        thousandSeparator="."
+                        onChangeEvent={this.handleChange.bind(this)}
+                  />
+
+                  <input
+                        required
+                        defaultValue={this.state.carSelected ? this.state.carSelected.km : ''}
+                        name="km"
+                        className="model"
+                        placeholder="km"
+                        onChange={this.handleChange.bind(this)}
+                  />
 
                   <div className="buttons">
                     <div className="options">
